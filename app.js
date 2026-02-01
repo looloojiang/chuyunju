@@ -242,6 +242,30 @@ nextBtn.addEventListener('click', ()=>{
   updateCarousel();
 });
 
+// Touch / swipe support for carousel (mobile)
+let touchStartX = 0;
+let touchEndX = 0;
+const swipeThreshold = 40; // px
+if(carouselTrack){
+  carouselTrack.addEventListener('touchstart', (e)=>{
+    touchStartX = e.touches[0].clientX;
+    touchEndX = touchStartX;
+  }, {passive:true});
+  carouselTrack.addEventListener('touchmove', (e)=>{
+    touchEndX = e.touches[0].clientX;
+  }, {passive:true});
+  carouselTrack.addEventListener('touchend', ()=>{
+    const dx = touchStartX - touchEndX;
+    if(Math.abs(dx) > swipeThreshold){
+      if(dx > 0){ // swiped left -> next
+        if(currentGallery.length>0){ currentIndex = (currentIndex+1)%currentGallery.length; updateCarousel(); }
+      } else { // swiped right -> prev
+        if(currentGallery.length>0){ currentIndex = (currentIndex-1+currentGallery.length)%currentGallery.length; updateCarousel(); }
+      }
+    }
+  }, {passive:true});
+}
+
 // image click as well
 document.addEventListener('click', (ev)=>{
   if(ev.target.classList.contains('pimg')){

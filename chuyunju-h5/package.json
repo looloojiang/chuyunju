@@ -1,0 +1,13 @@
+{
+  "name": "chuyunju-h5",
+  "version": "1.0.0",
+  "description": "轻量的移动网页模板，包含主题切换与分享按钮。",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs"
+}

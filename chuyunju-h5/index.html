@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+  <title>Chuyunju H5 Demo</title>
+  <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header>
+      <h1>出云居</h1>
+      <div class="tagline" id="siteTagline">
+        <p class="lead">甄选云南临沧冰岛产区优质茶品，致力呈现自然与匠心的茶味体验。本店以生茶为主，注重原始风味。</p>
+        <h3 class="guide-title">礼品选购指南</h3>
+          <ul class="guide-list">
+            <li><strong>送老玩家：</strong>优选茶饼，品质高，兼具品茗与收藏价值。</li>
+            <li><strong>送给新手：</strong>龙珠便于冲泡，是普洱和进阶的好选择。</li>
+            <li><strong>稳妥选择：</strong>散茶生熟兼顾，适合多人分享。</li>
+          </ul>
+      </div>
+    </header>
+    <main class="main-content">
+      <section id="products" class="products">
+        <!-- Products rendered by app.js -->
+      </section>
+
+      <section id="env" class="env">
+        <h2>茶店图片展示</h2>
+        <div id="envGallery" class="env-gallery"></div>
+      </section>
+    </main>
+
+    <footer>© <span id="year"></span> Chuyunju</footer>
+  <!-- Modal moved to body bottom to avoid layout nesting issues -->
+  <div id="imgModal" class="modal" aria-hidden="true">
+    <div class="modal-backdrop" id="modalClose"></div>
+    <div class="modal-content">
+      <button class="modal-close" id="modalCloseBtn">×</button>
+      <div class="carousel">
+        <button class="carousel-arrow left" id="prevBtn">‹</button>
+        <div class="carousel-track" id="carouselTrack"></div>
+        <button class="carousel-arrow right" id="nextBtn">›</button>
+      </div>
+      <div id="modalCaption" class="modal-caption"></div>
+    </div>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>

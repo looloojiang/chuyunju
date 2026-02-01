@@ -107,7 +107,8 @@ async function renderProducts(){
 }
 
 // Helper: try to find cover image (basename -1) with common extensions
-const exts = ['.jpg','.jpeg','.png','.webp','.svg'];
+// include both lowercase and uppercase extensions to match files like `*.JPG`
+const exts = ['.jpg','.jpeg','.png','.webp','.svg', '.JPG', '.JPEG', '.PNG', '.WEBP', '.SVG'];
 
 function loadImage(url){
   return new Promise(resolve => {

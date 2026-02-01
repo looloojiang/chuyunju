@@ -279,7 +279,19 @@ async function loadEnvGallery(){
   });
 }
 
+// Preload all product and env images in the background
+async function preloadAllImages(){
+  // Preload product galleries
+  for(const p of products){
+    buildGallery(p.folder, p.id).catch(()=>{}); // ignore errors
+  }
+  // Preload env gallery
+  buildGallery('images/env', 'env', 20).catch(()=>{});
+}
+
 loadEnvGallery();
+// Start preloading images without blocking the UI
+preloadAllImages();
 
 // Generic gallery modal opener for arbitrary image arrays
 function openGalleryModal(imgs, startIndex = 0, caption = ''){

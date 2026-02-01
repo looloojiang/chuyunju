@@ -151,18 +151,6 @@ async function buildGallery(folder, baseId, maxCount = 8){
         break;
       }
     }
-    if(!found){
-      // try generic index without baseId
-      for(const e of exts){
-        const url = `${folder}/${i}${e}`;
-        // eslint-disable-next-line no-await-in-loop
-        if(await loadImage(url)){
-          imgs.push(url);
-          found = true;
-          break;
-        }
-      }
-    }
     if(!found) break; // stop if no image found for this index
   }
   return imgs;
